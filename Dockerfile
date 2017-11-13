@@ -1,4 +1,4 @@
-FROM circleci/node:6.11.4-browsers
+FROM circleci/node:8.9.1-browsers
 
 RUN sudo apt-get update && sudo apt-get install -y \
     python-dev \

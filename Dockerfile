@@ -12,6 +12,6 @@ RUN set -ex \
 
 RUN set -ex \
     && pip install -U pip setuptools \
-    && pip install --no-cache-dir awscli
+    && pip install awscli
 
 USER circleci

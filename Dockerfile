@@ -1,10 +1,17 @@
-FROM circleci/node:8.11.4-browsers
+FROM circleci/node:8.12.0-jessie-browsers
 
-RUN sudo apt-get update && sudo apt-get install -y \
-    python-dev \
-    python-pip \
-    shellcheck \
+USER root
+
+RUN set -ex \
+    && apt-get update && sudo apt-get install -y \
+        python-dev \
+        python-pip \
+        shellcheck \
     && sudo apt-get clean \
     && sudo rm -rf /var/lib/apt/lists/*
-RUN sudo pip install awscli
 
+RUN set -ex \
+    && pip install --no-cache-dir -U pip setuptools
+    && pip install --no-cache-dir awscli
+
+USER circleci

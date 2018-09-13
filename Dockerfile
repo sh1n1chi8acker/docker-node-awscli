@@ -11,7 +11,7 @@ RUN set -ex \
     && sudo rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
-    && pip install --no-cache-dir -U pip setuptools
+    && pip install --no-cache-dir -U pip setuptools \
     && pip install --no-cache-dir awscli
 
 USER circleci
